@@ -1,18 +1,21 @@
-import React from "react";
-import {NavLink} from "react-router-dom";
-import {connect, useDispatch} from "react-redux";
-import {fetchCards} from "../redux/actions";
+import React from "react"
+import {NavLink} from "react-router-dom"
+import {connect, useDispatch} from "react-redux"
+import {fetchCards} from "../redux/actions"
 
 const Card = ({card, deleteTown, deleteCard, showDetailedCard}) => {
+
     const dispatch = useDispatch()
     const closeHandler = () => {
         deleteTown(card.name)
         deleteCard(card.name)
     }
+
     const refreshHandler = () => {
         dispatch(fetchCards(card.name))
         deleteCard(card.name)
     }
+
     const detailedClickHandler = () => {
         let coordinates = {
             lat: card.coord.lat,

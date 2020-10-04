@@ -1,4 +1,4 @@
-import {SAVE_TOWN, DELETE_TOWN, WRONG_TOWN} from './types'
+import {SAVE_TOWN, DELETE_TOWN} from "./types"
 
 const initialState = () => {
     if (JSON.parse(localStorage.getItem('state')) === null) {
@@ -10,17 +10,17 @@ export const townsReducer = (state = initialState(), action) => {
       switch (action.type) {
         default:
             return state
-        case SAVE_TOWN: {
+        case "SAVE_TOWN": {
             if (state.includes(action.payload)) {
                 return state
             }
             else return state.concat([action.payload])
         }
-        case DELETE_TOWN: {
-            return state.filter(town => town !== action.payload)
-        }
-        case WRONG_TOWN: {
-          return state.filter(town => town !== action.payload)
+        case "DELETE_TOWN": {
+            if (action.payload === 'Kyiv') {
+                return state.filter(town => town !== 'Kiev')
+            }
+            else return state.filter(town => town !== action.payload)
         }
     }
 }

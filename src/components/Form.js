@@ -1,10 +1,12 @@
-import React, {useState} from "react";
-import {connect, useDispatch} from "react-redux";
-import {fetchCards} from "../redux/actions";
+import React, {useState} from "react"
+import {connect, useDispatch, useSelector} from "react-redux"
+import {fetchCards} from "../redux/actions"
 
 const Form = ({submitForm}) => {
     const dispatch = useDispatch()
+    const towns = useSelector(state => state.townsReducer)
     const [form, setForm] = useState('')
+
     const changeHandler = (e) => {
         e.preventDefault()
         setForm(e.target.value)
@@ -12,9 +14,15 @@ const Form = ({submitForm}) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(fetchCards(form))
-        submitForm(form)
-        setForm('')
+        if (towns.includes(form)) {
+            setForm('')
+        }
+        else {
+            dispatch(fetchCards(form))
+            submitForm(form)
+            setForm('')
+        }
+
     }
 
     return (
@@ -23,10 +31,10 @@ const Form = ({submitForm}) => {
                 <div className="row">
                     <div className="input-field col s10">
                         <input id="town" type="text" className="validate" onChange={changeHandler} value= {form}/>
-                            <label htmlFor="town">City</label>
+                            <label htmlFor="town">Find your city</label>
                     </div>
-                    <button className="btn waves-effect waves-light col s2" type="submit" name="action">
-                        Submit
+                    <button className="button btn waves-effect waves-light col s2" type="submit" name="action">
+                        &#128269;
                     </button>
                 </div>
             </form>

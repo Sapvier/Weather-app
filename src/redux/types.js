@@ -5,5 +5,5 @@ export const DELETE_CARD = "DELETE_CARD"
 export const SHOW_DETAILED = "SHOW_DETAILED"
 export const FETCH_FORECAST = "FETCH_FORECAST"
 export const GO_BACK = "GO_BACK"
-export const WRONG_TOWN = "WRONG_TOWN"
+
 

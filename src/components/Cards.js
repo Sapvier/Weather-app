@@ -13,9 +13,12 @@ const Cards = () => {
         fetchedTowns.map(town => dispatch(fetchCards(town)))
     }, [])
 
-    return (
-        cards.map(card => <Card card={card} key={uuidv4()} />)
-    )
+    if (fetchedTowns.length > 0) {
+        return (
+            cards.map(card => <Card card={card} key={uuidv4()}/>)
+        )
+    }
+    else return <h4 className="center-align">Add the city to show the weather</h4>
 }
 
 export default Cards

@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchForecast} from "../redux/actions";
-import DetailedCard from "./DetailedCard";
-import {v4 as uuidv4} from "uuid";
-import {Redirect} from "react-router-dom";
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from "react-redux"
+import {fetchForecast} from "../redux/actions"
+import DetailedCard from "./DetailedCard"
+import {v4 as uuidv4} from "uuid"
 
 
 const DetailedPageCard = () => {
@@ -19,7 +18,6 @@ const DetailedPageCard = () => {
     return (
         forecast.map(forecast => <DetailedCard forecast={forecast} key={uuidv4()} />)
     )
-
 }
 
 export default DetailedPageCard

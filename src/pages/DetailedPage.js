@@ -1,5 +1,5 @@
-import React from 'react'
-import DetailedPageCard from "../components/DetailedPageCard";
+import React from "react"
+import DetailedPageCard from "../components/DetailedPageCard"
 
 
 function DetailedPage() {

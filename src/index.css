@@ -6,3 +6,7 @@
     margin: 10px;
     cursor: pointer
 }
+.button {
+    background-color: teal;
+    margin-top: 1.5rem;
+}
