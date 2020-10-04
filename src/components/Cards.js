@@ -7,11 +7,11 @@ import { v4 as uuidv4 } from 'uuid';
 const Cards = () => {
     const dispatch = useDispatch()
     let cards = useSelector(state => state.cardsReducer.cards)
-    let fetchedTowns = useSelector(state => state.townsReducer)
+    let fetchedTowns = JSON.parse(localStorage.getItem('state')) || []
 
-    // useEffect(() => {
-    //     fetchedTowns.map(town => dispatch(fetchCards(town)))
-    // }, [fetchedTowns, dispatch])
+    useEffect(() => {
+        fetchedTowns.map(town => dispatch(fetchCards(town)))
+    }, [])
 
     return (
         cards.map(card => <Card card={card} key={uuidv4()} />)

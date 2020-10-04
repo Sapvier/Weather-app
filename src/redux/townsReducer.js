@@ -17,7 +17,7 @@ export const townsReducer = (state = initialState(), action) => {
             else return state.concat([action.payload])
         }
         case DELETE_TOWN: {
-            return state.filter(town => town === action.payload)
+            return state.filter(town => town !== action.payload)
         }
     }
 }
