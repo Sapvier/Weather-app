@@ -1,4 +1,4 @@
-import {FETCH_CARDS, DELETE_CARD} from './types'
+import {FETCH_CARDS, DELETE_CARD, GO_BACK, WRONG_TOWN} from './types'
 
 const initialState = {
     cards: []
@@ -14,9 +14,16 @@ export const cardsReducer = (state = initialState, action) => {
             }
             return {cards: state.cards.concat([action.payload])}
         }
-        case
-            DELETE_CARD: {
+        case DELETE_CARD: {
             return {cards: state.cards.filter(town => town.name !== action.payload)}
+        }
+        case GO_BACK: {
+            return {
+                cards: []
+            }
+        }
+        case WRONG_TOWN: {
+            return state
         }
     }
 }

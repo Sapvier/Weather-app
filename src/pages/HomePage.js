@@ -3,13 +3,15 @@ import Cards from "../components/Cards";
 import Form from "../components/Form";
 
 
-function homePage() {
+function HomePage() {
     return (
         <div>
             <Form />
-            <Cards/>
+            <div className="row s12">
+                <Cards/>
+            </div>
         </div>
     );
 }
 
-export default homePage;
+export default HomePage;

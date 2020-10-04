@@ -6,8 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Cards = () => {
     const dispatch = useDispatch()
-    let cards = useSelector(state => state.cardsReducer.cards)
-    let fetchedTowns = JSON.parse(localStorage.getItem('state')) || []
+    const cards = useSelector(state => state.cardsReducer.cards)
+    const fetchedTowns = JSON.parse(localStorage.getItem('state')) || []
 
     useEffect(() => {
         fetchedTowns.map(town => dispatch(fetchCards(town)))

@@ -1,4 +1,4 @@
-import {SAVE_TOWN, DELETE_TOWN} from './types'
+import {SAVE_TOWN, DELETE_TOWN, WRONG_TOWN} from './types'
 
 const initialState = () => {
     if (JSON.parse(localStorage.getItem('state')) === null) {
@@ -18,6 +18,9 @@ export const townsReducer = (state = initialState(), action) => {
         }
         case DELETE_TOWN: {
             return state.filter(town => town !== action.payload)
+        }
+        case WRONG_TOWN: {
+          return state.filter(town => town !== action.payload)
         }
     }
 }

@@ -1,12 +1,13 @@
 import React from 'react'
+import DetailedPageCard from "../components/DetailedPageCard";
 
 
-function detailedPage() {
-    return (
-        <div>
-            <h3>Privet</h3>
-        </div>
-    );
+function DetailedPage() {
+        return (
+            <div>
+                <DetailedPageCard/>
+            </div>
+        )
 }
 
-export default detailedPage;
+export default DetailedPage;
