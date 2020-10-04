@@ -34,7 +34,7 @@ const Form = ({submitForm}) => {
                             <label htmlFor="town">Find your city</label>
                     </div>
                     <button className="button btn waves-effect waves-light col s2" type="submit" name="action">
-                        &#128269;
+                        Find
                     </button>
                 </div>
             </form>
