@@ -1,1 +1,8 @@
 @import "~materialize-css/dist/css/materialize.min.css";
+
+.closeButton {
+    color: white;
+    float: right;
+    margin: 10px;
+    cursor: pointer
+}

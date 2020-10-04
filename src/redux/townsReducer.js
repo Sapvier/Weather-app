@@ -1,13 +1,23 @@
-import {SAVE_TOWN} from './types'
+import {SAVE_TOWN, DELETE_TOWN} from './types'
 
-const initialState = []
-export const townsReducer = (state = initialState, action) => {
-    switch (action.type) {
+const initialState = () => {
+    if (JSON.parse(localStorage.getItem('state')) === null) {
+        return []
+    } else return JSON.parse(localStorage.getItem('state'))
+}
+
+export const townsReducer = (state = initialState(), action) => {
+      switch (action.type) {
         default:
             return state
         case SAVE_TOWN: {
-            return state.concat([action.payload])
+            if (state.includes(action.payload)) {
+                return state
+            }
+            else return state.concat([action.payload])
+        }
+        case DELETE_TOWN: {
+            return state.filter(town => town === action.payload)
         }
     }
 }
-//два разных стейта

@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
+import {fetchCards} from "../redux/actions";
 
 const Form = ({submitForm}) => {
+    const dispatch = useDispatch()
     const [form, setForm] = useState('')
     const changeHandler = (e) => {
         e.preventDefault()
@@ -10,6 +12,7 @@ const Form = ({submitForm}) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
+        dispatch(fetchCards(form))
         submitForm(form)
         setForm('')
     }

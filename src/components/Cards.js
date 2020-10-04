@@ -2,18 +2,20 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Card from "./Card";
 import {fetchCards} from '../redux/actions'
-const {uuid} = require('uuidv4');
+import { v4 as uuidv4 } from 'uuid';
 
 const Cards = () => {
     const dispatch = useDispatch()
     let cards = useSelector(state => state.cardsReducer.cards)
+    let fetchedTowns = useSelector(state => state.townsReducer)
 
-    useEffect(() => {
-        dispatch(fetchCards())
-    }, []);
+    // useEffect(() => {
+    //     fetchedTowns.map(town => dispatch(fetchCards(town)))
+    // }, [fetchedTowns, dispatch])
 
     return (
-        cards.map(card => <Card card={card} key={uuid()} />)
+        cards.map(card => <Card card={card} key={uuidv4()} />)
     )
 }
+
 export default Cards

@@ -1,16 +1,25 @@
-import {FETCH_CARDS} from './types'
+import {FETCH_CARDS, DELETE_CARD} from './types'
 
 const initialState = {
     cards: []
 }
-
 
 export const cardsReducer = (state = initialState, action) => {
     switch (action.type) {
         default:
             return state
         case FETCH_CARDS: {
-            return {...state, cards: [action.payload]}
+            if (state.cards.includes(action.payload.name)) {
+                return {cards: state.cards.filter(town => town !== action.payload)}
+            }
+            return {cards: state.cards.concat([action.payload])}
+        }
+        case
+            DELETE_CARD: {
+            return {cards: state.cards.filter(town => town.name !== action.payload)}
         }
     }
 }
+
+
+

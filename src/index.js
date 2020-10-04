@@ -15,8 +15,11 @@ const store = createStore(rootReducer, persistedState, composeEnhancers(
     applyMiddleware(
         thunk
     )));
+
 store.subscribe(() => {
-    saveState(store.getState())
+    saveState(
+        store.getState().townsReducer
+    )
 })
 
 const app = (
